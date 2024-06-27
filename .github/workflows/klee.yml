@@ -13,8 +13,10 @@ jobs:
         with:
           ref: cfb125575a4c3a323998029fb148396eb1aac697
           
-      - name: Build repository 
+      - name: Install dependencies and build repository 
         run: | 
+          sudo apt-get update
+          sudo apt-get install -y libtools
           ./configure --disable-gtk --launch-jobs=0 --launch
       
       - name: Install Klee and STP dependencies
@@ -61,6 +63,8 @@ jobs:
         run: |
           #!/bin/bash
 
+          set +e 
+          
           include_dirs=$(find . -name '*.h' -exec dirname {} + | sort -u | sed 's/^/-I /')
           
           while IFS= read -r -d '' file; do
