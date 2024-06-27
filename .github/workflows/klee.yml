@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies and build repository 
         run: | 
           sudo apt-get update
-          sudo apt-get install -y libtool-* meson nasm
+          sudo apt-get install -y libtool-* meson nasm numa-*
           ./configure --disable-gtk --launch-jobs=0 --launch
       
       - name: Install Klee and STP dependencies
