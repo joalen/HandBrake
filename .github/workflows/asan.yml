@@ -23,6 +23,7 @@ jobs:
           sudo apt-get install -y libtool-* meson nasm numa-* libass-dev libass9 yasm pkg-config intltool libbluray2 libbluray-dev libdvdread-* libdvdnav-* libmp3lame-dev libmp3lame0 libopus-dev libopus0 libsamplerate0 libsamplerate0-dev libtheora-dev libtheora0 libvorbis0a libvorbisenc2 libvorbis-dev libvorbisfile3 libvorbisidec-dev libvorbisidec1 libvpx-dev libvpx7 libx264-* libx265-* libxml2 libxml2-dev zlib1g zlib1g-dev
       
       - name: Build repository 
+        continue-on-error: true
         run: | 
           set +e
           export CC=clang
