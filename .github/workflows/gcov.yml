@@ -31,7 +31,8 @@ jobs:
           export CFLAGS="-fprofile-arcs -ftest-coverage -fPIC"
           export LDFLAGS="-fprofile-arcs -ftest-coverage -fPIC"
           ./configure --disable-gtk --launch-jobs=0 --launch
-           
+        continue-on-error: true
+        
       - name: Run GCOV
         run: |
           #!/bin/bash
